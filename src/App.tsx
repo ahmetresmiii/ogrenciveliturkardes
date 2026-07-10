@@ -2134,7 +2134,7 @@ const submittedObj = updated.find(a => a.id === submittingAssignmentId);
 
       </main>
 
-      {/* FOOTER */}
+    {/* FOOTER */}
       <footer className="mt-16 border-t border-slate-700/50 bg-slate-950/80 py-8 text-xs text-slate-500 text-center backdrop-blur">
         <div className="max-w-7xl mx-auto px-4 space-y-2">
           <p className="font-bold text-slate-400">DersLink — Öğretmen, Öğrenci & Veli Platformu (Firebase Firestore Bağlantılı)</p>
