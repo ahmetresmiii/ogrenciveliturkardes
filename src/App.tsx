@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
-import { sendTelegramNotification } from './telegram.ts';
+import { sendTelegramNotification } from './telegram';
 import { 
   UserPlus, 
   FileText, 
