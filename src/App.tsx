@@ -808,15 +808,7 @@ const submittedObj = updated.find(a => a.id === submittingAssignmentId);
     if (submittedObj) {
       await saveDocToFirebase("assignments", submittedObj.id, submittedObj);
       
-      // 🔔 TELEGRAM BİLDİRİMİ
-      await sendTelegramNotification(
-        `🔥 *Ödev Teslim Edildi!*\n\n` +
-        `👤 *Öğrenci:* ${currentStudentUser?.name || 'Bilinmeyen Öğrenci'}\n` +
-        `📝 *Ödev:* ${submittedObj.title}\n` +
-        `🔗 *Doküman Linki:* ${studentSubmissionUrl}`
-      );
-    } 
-
+      
     setSubmittingAssignmentId(null);
     setStudentSubmissionUrl('');
     setStudentSubmissionNotes('');
