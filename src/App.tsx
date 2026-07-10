@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { sendTelegramNotification } from './telegram';
 import { 
   UserPlus, 
   FileText, 
@@ -41,13 +42,13 @@ import {
 
 // --- FIREBASE CONFIGURATION ---
 const firebaseConfig = {
-  apiKey: "AIzaSyBqxSvtSrKLjb-0Yq91abjXhqPy8JIbSJs",
-  authDomain: "veliogrenci-cce71.firebaseapp.com",
-  projectId: "veliogrenci-cce71",
-  storageBucket: "veliogrenci-cce71.firebasestorage.app",
-  messagingSenderId: "1092640766125",
-  appId: "1:1092640766125:web:c3b7c7dc99606515946e24",
-  measurementId: "G-JQ5PGHB7K9"
+  apiKey: "AIzaSyDs5blACfmlwuFmiiF5QjqQW-6d33I4hU0",
+  authDomain: "ogrencivelibaki.firebaseapp.com",
+  projectId: "ogrencivelibaki",
+  storageBucket: "ogrencivelibaki.firebasestorage.app",
+  messagingSenderId: "466518686663",
+  appId: "1:466518686663:web:a2d3c7f95b4e86710677e2",
+  measurementId: "G-XX6TJVT61R"
 };
 
 // Initialize Firebase App & Firestore Database
@@ -806,6 +807,16 @@ export default function App() {
 const submittedObj = updated.find(a => a.id === submittingAssignmentId);
     if (submittedObj) {
       await saveDocToFirebase("assignments", submittedObj.id, submittedObj);
+      
+      // 🔔 TELEGRAM BİLDİRİMİ
+      await sendTelegramNotification(
+        `🔥 *Ödev Teslim Edildi!*\n\n` +
+        `👤 *Öğrenci:* ${currentStudentUser?.name || 'Bilinmeyen Öğrenci'}\n` +
+        `📝 *Ödev:* ${submittedObj.title}\n` +
+        `🔗 *Doküman Linki:* ${studentSubmissionUrl}`
+      );
+    } 
+
     setSubmittingAssignmentId(null);
     setStudentSubmissionUrl('');
     setStudentSubmissionNotes('');
@@ -2133,7 +2144,8 @@ const submittedObj = updated.find(a => a.id === submittingAssignmentId);
         )}
 
       </main>
-    {/* FOOTER */}
+
+      {/* FOOTER */}
       <footer className="mt-16 border-t border-slate-700/50 bg-slate-950/80 py-8 text-xs text-slate-500 text-center backdrop-blur">
         <div className="max-w-7xl mx-auto px-4 space-y-2">
           <p className="font-bold text-slate-400">DersLink — Öğretmen, Öğrenci & Veli Platformu (Firebase Firestore Bağlantılı)</p>
@@ -2143,6 +2155,7 @@ const submittedObj = updated.find(a => a.id === submittingAssignmentId);
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
