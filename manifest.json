@@ -1,0 +1,17 @@
+{
+  "name": "DersLink Öğrenci Takip Sistemi Ahmet Bey",
+  "short_name": "DersLink",
+  "description": "Öğretmen ve Öğrenci Akademik Takip Platformu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3413/3413392.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
