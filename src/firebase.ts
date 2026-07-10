@@ -2,17 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBqxSvtSrKLjb-0Yq91abjXhqPy8JIbSJs",
-  authDomain: "veliogrenci-cce71.firebaseapp.com",
-  projectId: "veliogrenci-cce71",
-  storageBucket: "veliogrenci-cce71.firebasestorage.app",
-  messagingSenderId: "1092640766125",
-  appId: "1:1092640766125:web:c3b7c7dc99606515946e24",
-  measurementId: "G-JQ5PGHB7K9"
+  apiKey: "AIzaSyDs5blACfmlwuFmiiF5QjqQW-6d33I4hU0",
+  authDomain: "ogrencivelibaki.firebaseapp.com",
+  projectId: "ogrencivelibaki",
+  storageBucket: "ogrencivelibaki.firebasestorage.app",
+  messagingSenderId: "466518686663",
+  appId: "1:466518686663:web:a2d3c7f95b4e86710677e2",
+  measurementId: "G-XX6TJVT61R"
 };
 
-// Firebase'i başlat
 const app = initializeApp(firebaseConfig);
-
-// Firestore veritabanını dışa aktar (Arena AI bunu kullanacak)
 export const db = getFirestore(app);
